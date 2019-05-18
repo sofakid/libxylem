@@ -16,5 +16,5 @@ for folder in subfolders:
   cover = glob.glob('cover.*')[0]
   print(folder, end=' :: ')
   print(cover)
-  subprocess.call([magick, 'convert', cover, '-blur', '30x30', '-brightness-contrast', '-30', 'cover_bg.png'])
+  subprocess.call([magick, 'convert', cover, '-blur', '0x10', '-brightness-contrast', '-30', 'cover_bg.png'])
   subprocess.call([magick, 'convert', cover, 'cover_fg.png'])
