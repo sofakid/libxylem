@@ -8,6 +8,7 @@ from collections import deque
 
 from xylem.config import XylemConfig
 from xylem.filey import go_and_get_album_folders
+from xylem.stringy import mkv_suffix
 
 def load_json():
   with open(XylemConfig.json_file, 'r') as fd:
@@ -146,7 +147,7 @@ def make_albums_from_tracks():
 
   for folder in subfolders:
     os.chdir(folder)
-    suffix = '_' + XylemConfig.profile.tag + '.mkv'
+    suffix = mkv_suffix()
     tracks = glob.glob('trk_*' + suffix)
     tracks.sort()
     
@@ -156,7 +157,7 @@ def make_albums_from_tracks():
       for track in tracks:
         fd.write("file '" + track + "'\n")
         
-    s = tracks[0][4:-6]
+    s = tracks[0][4:-(len(suffix) + 3)]
     outfile = 'album_' + s + suffix
 
     try:
@@ -170,4 +171,4 @@ def make_albums_from_tracks():
 
     print(' :: done.')
 
-    os.remove(tracklist)
+    os.remove(os.path.join(folder, tracklist))

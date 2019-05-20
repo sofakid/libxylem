@@ -1,7 +1,7 @@
 import bpy
 import os
 
-from xylem.stringy import track_image_label
+from xylem.stringy import track_image_label, png_suffix
 
 def find_sequencer_area():
   bpy.context.window.screen = bpy.data.screens['Video Editing']
@@ -40,7 +40,7 @@ def sequence_add_sound_and_image(folder, soundfile, artist, album, track, start)
   dur = sound_strip.frame_duration
   sound_strip.frame_start = start
   
-  scene_png = track_image_label(track, artist, album) + ".png"
+  scene_png = track_image_label(track, artist, album) + png_suffix()
   sequence_add_image(folder, scene_png, start, start + dur)
 
   return dur

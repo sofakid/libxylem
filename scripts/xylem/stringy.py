@@ -1,4 +1,5 @@
 import re
+from xylem.config import XylemConfig
 
 maxlabel = 60
 
@@ -55,7 +56,7 @@ def track_image_label(number, artist, album):
 
 def zero_pad(x):
     y = int(x)
-    z = '0' if y < 9 else ''
+    z = '0' if y <= 9 else ''
     return z + str(y)
      
 def frames_to_time(frames):
@@ -69,3 +70,9 @@ def frames_to_time(frames):
     
     hh = '' if hours == 0 else (zero_pad(hours) + ";")
     return hh + zero_pad(mm) + ":" + zero_pad(ss)
+
+def png_suffix():
+  return '___' + XylemConfig.profile.tag + '.png'
+
+def mkv_suffix():
+  return '___' + XylemConfig.profile.tag + '.mkv'

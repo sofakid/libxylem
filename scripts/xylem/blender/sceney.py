@@ -2,6 +2,7 @@ import bpy
 import os
 
 from xylem.config import XylemConfig
+from xylem.stringy import *
 
 def delete_camera():
   bpy.ops.object.select_all(action='DESELECT')
@@ -39,6 +40,8 @@ def new_scene(name, folder):
   except:
     pass
   
+  outfile = name + png_suffix()
+
   bpy.ops.scene.new(type='NEW')
   scene = bpy.context.scene
   scene.name = name
@@ -47,7 +50,7 @@ def new_scene(name, folder):
   scene.render.use_envmaps = False
   scene.render.alpha_mode = 'TRANSPARENT'
   scene.render.display_mode = 'SCREEN'
-  scene.render.filepath = folder + name + '.png'
+  scene.render.filepath = os.path.join(folder, outfile)
   scene.render.resolution_percentage = 100
   scene.render.resolution_x = XylemConfig.profile.res_x
   scene.render.resolution_y = XylemConfig.profile.res_y
@@ -60,7 +63,7 @@ def new_movie_scene(name, folder):
   except:
     pass
   
-  outfile = name + '_' + XylemConfig.profile.tag + '.mkv'
+  outfile = name + mkv_suffix()
 
   bpy.ops.scene.new(type='NEW')
   scene = bpy.context.scene
