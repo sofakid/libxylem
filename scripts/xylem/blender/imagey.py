@@ -2,6 +2,8 @@ import bpy
 import struct
 import imghdr
 
+from xylem.config import XylemConfig
+
 # ===================================================================
 # get_image_size: thanks stack overflow
 def get_image_size(fname):
@@ -38,30 +40,9 @@ def get_image_size(fname):
         else:
             return
         return width, height
-    
-# ===================================================================
-# put the image in the video sequence
-def doCoverImage(folder, filename, frame_start, frame_end):
-    area = bpy.context.area
-    old_type = area.type
-    area.type = 'SEQUENCE_EDITOR'
-    bpy.ops.sequencer.image_strip_add(directory=folder, files=[{"name":filename, "name":filename}], frame_start=frame_start, frame_end=frame_end, channel=1)
-    #bpy.context.scene.sequence_editor.sequences_all["cover.png"].use_translation = False
-    #bpy.context.scene.sequence_editor.sequences_all["cover.png"].frame_final_duration = frame_end - frame_start
-    
-    #print(folder + ' :: ' + filename)
-    #imgX, imgY = get_image_size(folder + filename)
-    #vidX = 1920
-    #vidY = 1080
-    
-    #bpy.ops.sequencer.effect_strip_add(frame_start=frame_start, frame_end=frame_end, type='TRANSFORM')
-    #bpy.context.scene.sequence_editor.sequences_all["Transform"].scale_start_x = (imgX / vidX)
-    #bpy.context.scene.sequence_editor.sequences_all["Transform"].scale_start_y = (imgY / vidY)
-    
-    bpy.context.area.type = old_type
 
 # put the images in the scene
-def coverImage(cfg, folder):
+def coverImage(custom, folder):
     coverFgFilename = 'cover_fg.png'
     coverBgFilename = 'cover_bg.png'
     
@@ -70,7 +51,7 @@ def coverImage(cfg, folder):
     
     theta = imgY / imgX
     
-    bgX = 25
+    bgX = XylemConfig.profile.bg_w
     bgY = bgX * theta
     
     bpy.ops.import_image.to_plane(files=[{"name":coverBgFilename, "name":coverBgFilename}], directory=folder, relative=False)
@@ -97,6 +78,6 @@ def coverImage(cfg, folder):
     fgImage = bpy.context.object
     
     fgImage.dimensions = fgX, fgY, 0
-    fgImage.location = 0, 0, 0
+    fgImage.location = XylemConfig.profile.origin_x, XylemConfig.profile.origin_y, 0
     
-    bpy.ops.transform.translate(value=(-4 + xShift, 0.5, 0))
+    bpy.ops.transform.translate(value=(-4 + xShift, XylemConfig.profile.fg_raise, 0))

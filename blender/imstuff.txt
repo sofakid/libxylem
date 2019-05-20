@@ -1,1 +1,0 @@
-magick convert cover.png -blur 30x30 cover_blur.png
