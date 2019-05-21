@@ -19,8 +19,8 @@ def makeTrackScene(number, title, folder, artist, album):
   scene_name = track_image_label(number, artist, album)
   new_scene(scene_name, folder)
   set_camera()
-  coverImage(custom, folder)
-  putFullText(custom, number, title, artist, album)
+  x_shift = coverImage(custom, folder)
+  putFullText(custom, number, title, artist, album, x_shift)
   bpy.ops.render.render(write_still=True)
 
 def getFolderData(folder):

@@ -21,7 +21,7 @@ class Profile_1920x854:
     self.res_x = 1920
     self.res_y = 854
     self.camera_z = 25
-    self.textbox_w = 11
+    self.textbox_w = 13
     self.text_h = 0.7
     self.song_h = 0.9
     self.bg_w = 25

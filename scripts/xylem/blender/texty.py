@@ -2,9 +2,9 @@ from xylem.stringy import *
 from xylem.config import XylemConfig
 import bpy
 
-def putFullText(custom, number, title, artist, album):
+def putFullText(custom, number, title, artist, album, x_shift):
      
-  ox = XylemConfig.profile.origin_x
+  ox = XylemConfig.profile.origin_x + x_shift
   oy = XylemConfig.profile.origin_y
 
   textBoxWidth = XylemConfig.profile.textbox_w
@@ -67,7 +67,7 @@ def putFullText(custom, number, title, artist, album):
   titleTxt.data.body = s
   titleTxt.data.font = fnt
   titleTxt.data.size = songSize
-  titleTxt.data.text_boxes[0].width = textBoxWidth
+  titleTxt.data.text_boxes[0].width = textBoxWidth - x_shift
   bpy.context.scene.update()
   titleTxtW, titleTxtH, foo = titleTxt.dimensions
   
@@ -79,7 +79,7 @@ def putFullText(custom, number, title, artist, album):
   albumInfoTxt.data.body = artist + '\n' + album
   albumInfoTxt.data.font = fnt
   albumInfoTxt.data.size = textSize
-  albumInfoTxt.data.text_boxes[0].width = textBoxWidth
+  albumInfoTxt.data.text_boxes[0].width = textBoxWidth - x_shift
   bpy.context.scene.update()
   albumInfoTxtW, albumInfoTxtH, fooTwo = albumInfoTxt.dimensions
   

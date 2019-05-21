@@ -33,7 +33,7 @@ def XylemCustomize(number, title, artist, album):
       custom.do_track_numberize = False
 
   if (artist == 'D.N.P' and album.startswith("RUSSIA")):
-    custom.album = "RUSSIA, 1937-1957,\nTHE 'ANSWER'"
+    custom.album = "RUSSIA, 1937-1957, THE 'ANSWER'"
       
   if (artist == 'Nicholas Starke' and album == 'Abstraction'):
     custom.do_insert_newlines_on_brackets = False
@@ -61,6 +61,8 @@ def XylemCustomize(number, title, artist, album):
   if (artist == 'Francesco Sani' and album == 'of cosmic bodies and infinite'):
     custom.album = 'of cosmic bodies and infinite music'
     custom.centerline = 0.5
+    if (number == 2):
+      custom.do_insert_newlines_on_brackets = True
 
   if (artist == 'Lu_shush' and album == 'Something Shared'):
     custom.do_insert_newlines_on_brackets = False
