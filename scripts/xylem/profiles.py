@@ -26,6 +26,20 @@ class Profile_1920x854:
     self.song_h = 0.9
     self.bg_w = 25
     self.fg_raise = 0.7
+
+class Profile_1920x854_2:
+  def __init__(self):
+    self.tag = 'wider2'
+    self.origin_x = -1
+    self.origin_y = 0
+    self.res_x = 1920
+    self.res_y = 854
+    self.camera_z = 20
+    self.textbox_w = 7
+    self.text_h = 0.6
+    self.song_h = 0.7
+    self.bg_w = 25
+    self.fg_raise = 0
     
 class Profile_1920x400:
   def __init__(self):

@@ -31,10 +31,10 @@ def movie_label(artist, album):
   return movie_label_fixed('alb', artist, album, '', maxlabel)
 
 def movie_track_label(artist, album, sTrackNumber):
-  return movie_label_fixed('trk', artist, album, sTrackNumber, maxlabel)
+  return movie_label_fixed('trk', simple_string(artist), simple_string(album), sTrackNumber, maxlabel)
 
 def simple_string(s):
-  return re.sub(r'\W', '_', s)
+  return re.sub(r'[^0-9A-Za-z]', '_', s)
 
 def track_numberize(number):
     return str(number) if (number > 9) else '0' + str(number)

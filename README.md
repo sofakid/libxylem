@@ -1,5 +1,5 @@
-libxylem
-========
+xylem album tuber 3000
+======================
 
 Requirements
 ------------
@@ -80,7 +80,7 @@ Now the images look good, render the albums with:
 
 Step 4: `python renderTracks.py`
 --------------------------------
-Video rendering is slow and single-threaded with blender, so we start a bunch of blenders to render the track videos. This number is calculated as 75% of the number of cores (real or hyper).
+Video rendering is slow and with blender it's single-threaded, so we start a bunch of blenders to render the track videos. This number is calculated as 75% of the number of cores (real or hyper).
 
 When this step is done, the track videos will be concatenated with ffmpeg into a full album video. (this step is very fast)
 
