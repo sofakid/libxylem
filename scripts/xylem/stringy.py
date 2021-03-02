@@ -68,7 +68,7 @@ def frames_to_time(frames):
     ss = seconds % 60
     mm = minutes % 60
     
-    hh = '' if hours == 0 else (zero_pad(hours) + ";")
+    hh = '' if hours == 0 else (zero_pad(hours) + ":")
     return hh + zero_pad(mm) + ":" + zero_pad(ss)
 
 def png_suffix():

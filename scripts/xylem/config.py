@@ -14,14 +14,14 @@ class XylemConfig:
   blender = r'C:\Program Files\Blender Foundation\Blender\blender.exe'
   magick = r'C:\Program Files\ImageMagick-7.0.8-Q16\magick.exe'
   ffmpeg = r'C:\Program Files\ImageMagick-7.0.8-Q16\ffmpeg.exe'
-  albums_folder = r'C:\Users\Lucas\Desktop\xylem\albums_wip'
+  albums_folder = r'C:\Users\Lucas\Desktop\workish\xylem\albums_wip'
   
   json_file = albums_folder + r'\albums_wip.json'
   blender_file = albums_folder + r'\albums_wip.blend'
 
   blenders = getOptimalBlenders()
 
-  font = r'C:\Users\Lucas\Desktop\xylem\fonts\Futura Std Book.ttf'
+  font = r'C:\Users\Lucas\Desktop\workish\xylem\fonts\Futura Std Book.ttf'
 
   #profile = Profile_1280x720()
   profile = Profile_1920x854()

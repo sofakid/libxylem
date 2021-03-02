@@ -75,7 +75,10 @@ def XylemCustomize(number, title, artist, album):
       custom.do_track_numberize = False
     if (album == 'WAKING'):
       custom.do_insert_newlines_on_brackets = False
-  
+    if (album == 'you were with me when I was at the end'):
+      custom.album = '-you were with me when I was at the end-'
+      custom.do_track_numberize = False
+
   if (artist == "Ryan Roth" and album == "DISTILLED CORRUPTION"):
     custom.do_track_numberize = False
       
@@ -88,4 +91,7 @@ def XylemCustomize(number, title, artist, album):
   if (album == 'I Am A Dead Man'):
     custom.do_insert_newlines_on_brackets = False
   
+  if (artist == 'Ethan James' and album == 'Seafields'):
+    custom.do_track_numberize = False
+
   return custom
